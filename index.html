@@ -1,0 +1,46 @@
+<!doctype html>
+<head >
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title></title>
+
+
+    <meta name="viewport" content="width=device-width">
+
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="ical.js"></script>
+    <script src="SimpleEvent.js"></script>
+
+    <script>
+
+    var parseResult;
+
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    var iCalParse = function(rawData) {
+        parseResult = ical.parseICS(rawData);
+
+        for (var k in parseResult) {
+        if (parseResult.hasOwnProperty(k)) {
+          var ev = parseResult[k];
+
+                    
+        }
+            }
+        $( "#iCal" ).html( "<pre>" + rawData + "</pre>" );
+    }
+
+    $.ajax({
+      url: "https://www.bisd303.org//site/UserControls/Calendar/EventExport.aspx?ModuleInstanceID=18875&StartDate=05/18/2017&EndDate=05/31/2017",
+      success: iCalParse
+    });
+    </script>
+</head>
+<body>
+    <div id = "iCal"></div>
+</body>
+</html>
+
+
+
